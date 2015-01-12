@@ -17,6 +17,7 @@
         if ($record['city'] == '') {
             $record['city'] = 'Unknown city';
         }
+        $record['city'] = iconv('ISO-8859-1//TRANSLIT', 'UTF-8', $record['city']);
         if ($u_ip == $_SERVER['REMOTE_ADDR']) {
             echo $record['city'] . ': that\'s you!</br>';
             continue;
