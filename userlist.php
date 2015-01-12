@@ -19,7 +19,7 @@
         }
         $record['city'] = iconv('ISO-8859-1//TRANSLIT', 'UTF-8', $record['city']);
         if ($u_ip == $_SERVER['REMOTE_ADDR']) {
-            echo $record['city'] . ': that\'s you!</br>';
+            echo $record['city'] . ' ('.$record['country_code'].'): that\'s you!</br>';
             continue;
         }
         $last_seen = time() - $u_time;
@@ -27,7 +27,7 @@
             continue;
         }
         
-        echo $record['city'] . ': ' .$last_seen .' second';
+        echo $record['city'] . ' ('.$record['country_code'].'): ' .$last_seen .' second';
         if ($last_seen != 1){
             echo 's';
         }
