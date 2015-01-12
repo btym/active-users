@@ -15,6 +15,9 @@
     foreach ($users as $u_ip=>$u_time) {
         $record = geoip_record_by_name($u_ip);
         $last_seen = time() - $u_time;
+        if ($last_seen > 299){
+            continue;
+        }
         if ($record['city'] == '') {
             $record['city'] = 'Unknown city';
         }
