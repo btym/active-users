@@ -14,13 +14,18 @@
     }
     foreach ($users as $u_ip=>$u_time) {
         $record = geoip_record_by_name($u_ip);
+        if ($record['city'] == '') {
+            $record['city'] = 'Unknown city';
+        }
+        if ($u_ip == $_SERVER['REMOTE_ADDR']) {
+            echo $record['city'] . ': that\'s you!</br>';
+            continue;
+        }
         $last_seen = time() - $u_time;
         if ($last_seen > 299){
             continue;
         }
-        if ($record['city'] == '') {
-            $record['city'] = 'Unknown city';
-        }
+        
         echo $record['city'] . ': ' .$last_seen .' second';
         if ($last_seen != 1){
             echo 's';
