@@ -3,6 +3,7 @@
 - put the files on your server (duh)
 - go to customize -> edit html, and paste this where you want the counter to show up:
 ```html
+<div id="counter"></div>
 <script src="http://your.domain/counter.php"></script>
 ```
 - add a new page (at the bottom of the "edit theme" sidebar), it must be called "map" unless you edit counter.php
