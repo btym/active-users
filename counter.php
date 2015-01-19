@@ -19,9 +19,9 @@
     fclose($ufp);
     if ($output_as_script) {
         if (count($users) == 1) {
-            echo 'document.write("1 user online <a href=\'/map\'>(map)</a>")';
+            echo 'document.getElementById("counter").innerHTML="1 user online <a href=\'/map\'>(map)</a>"';
         } else {
-            echo 'document.write("' . count($users) . ' users online <a href=\'/map\'>(map)</a>")';
+            echo 'document.getElementById("counter").innerHTML="' . count($users) . ' users online <a href=\'/map\'>(map)</a>"';
         }
     } else {
         if (count($users) == 1) {
